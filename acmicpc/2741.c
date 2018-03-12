@@ -7,7 +7,7 @@ int main() {
   scanf("%d", &N);
   // N이 자연수 라면
   if(N>0){
-    // N부터 1까지 차례로 출력
+    // 1부터 N까지 차례로 출력
     for(i=1; i<=N; i++){
       printf("%d\n", i);
     }
