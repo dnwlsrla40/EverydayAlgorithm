@@ -13,7 +13,6 @@ int main() {
 			cnt += month[i];
 		}
 		cnt += y;
-		printf("%d\n", &cnt);
 	}
 	switch (cnt % 7) {
 	case 0:
