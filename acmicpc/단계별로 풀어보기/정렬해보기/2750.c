@@ -2,6 +2,7 @@
 
 int* Qsort(int* arr, int N);
 
+
 int main() {
 	int N;
 	int arr[1000];
