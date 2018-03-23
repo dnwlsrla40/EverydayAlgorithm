@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
 	int arr[8];
 	int count_ascending = 0;
