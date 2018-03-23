@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
   int N;
   int i;                             // 구구단 행
