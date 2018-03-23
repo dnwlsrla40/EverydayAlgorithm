@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
 	int N,input,sum = 0;
 	int i;
