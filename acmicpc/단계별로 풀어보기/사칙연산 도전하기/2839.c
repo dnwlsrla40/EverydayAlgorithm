@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
 	int N=0;                             // 설탕 kg
 	int f=0, t=0;                        // 5k,3k 봉지
