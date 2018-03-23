@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
 	int N, r = 0;
 	int F;
