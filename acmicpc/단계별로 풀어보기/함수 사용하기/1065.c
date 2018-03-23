@@ -2,6 +2,7 @@
 
 bool checknumber(int N);
 
+
 int main() {
 	int N;
 	int i;
