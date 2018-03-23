@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
 	int x, y, i;
 	int cnt = 0;
