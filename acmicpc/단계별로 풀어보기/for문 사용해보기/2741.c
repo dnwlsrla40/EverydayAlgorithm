@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
   int N;                      // 자연수 N
   int i;                      // 비교 대상 i
