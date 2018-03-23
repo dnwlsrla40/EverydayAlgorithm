@@ -2,6 +2,7 @@
 #include <string.h>
 #define N 1000000
 
+
 void RemoveEndSpaces(char *buf);
 
 int main() {
