@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
-        import java.util.Arrays;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Java_2110 {
     public static int binSearch(int[] Array, int left, int right, int routerCount) {
