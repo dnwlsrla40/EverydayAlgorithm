@@ -74,13 +74,120 @@ void pick(int n, int[] picked, int toPick){
 
 정렬의 경우 정렬하고자 하는 개체의 수가 입력의 크기가 된다.
 
-## **인접 행렬 vs 인접 리스트**
-
-꼭짓점(vertex)가 적은 경우에만 인접 행렬 사용
-
 ## **StringTokenizer**
 
 자바에서 String을 Token 단위로 끊어주는 기능 제공 
+
+## **DFS 알고리즘**
+
+DFS 알고리즘은 깊이 우선 탐색으로 아래 그림처럼 깊이를 우선적으로 탐색하는 방법이다.
+
+![DFS](./picture/DFS.JPG)
+
+DFS는 스택을 사용하고, 인접행렬 또는 인접리스트를 통해 구현할 수 있다.
+
+### 인접행렬 vs 인접 리스트 (그래프 표현 방법)
+
+인접 행렬은 연결 되어 있지 않은 간선도 표시하기 때문에, 차지하는 크기가 크다. 따라서, 입력의 꼭짓점(vertex)가 적은 경우에 인접 행렬을 사용, 많으면 인접 리스트를 사용한다.
+
+혹은, 인접 리스트를 통해 간선에 대한 접근을 하려면 각 인덱스를 순회하여야 하므로 상황에 따라 선택하여 쓴다.
+
+### 스택
+
+사용하는 연산
+1. push : 저장소에 자료를 삽입
+2. pop : 저장소에서 자료를 꺼냄
+3. isEmpty : 스택이 공백인지 아닌지 확인
+4. peek : top에 있는 원소를 반환
+
+### 스택의 알고리즘
+
+1. push
+
+    ```
+    int Stack[100];
+    int Top = -1;
+
+    void push(int val){
+        if(top >= 100(STACK_SIZE)-1) // Stack size 확인
+            return; // Overflow
+        else
+            Stack[++Top] = val; // 값 추가
+    }
+    ```
+
+2. pop
+   
+   ```
+    int pop() {
+        if(Top==-1) // Stack이 비었는 지 확인
+            return 0;   // Empty
+        else
+            return Stack[Top--];
+    }
+
+### **DFS 알고리즘-재귀**
+
+Input 사이즈가 작다면 재귀로 풀어도 된다.(주로 많이 쓰는 방법)
+
+```
+int Graph[MAX_N][MAX_M];
+bool Visited[MAX_N]; // 방문 한 적이 있는 지 확인
+
+// 재귀 형식으로 깊이 탐색이 들어가게 된다. 0->1->2 순으로 만약 없다면, 재귀가 끝나 되돌아 가게된다.
+void dfs(int node){
+    Visited[node] = true; // 방문 했으니 변경
+
+    for(int next=0; next<N; ++next){
+        if(!Visited[next] && Graph[node][next]) // 한 번도 가보지 않았고, 길이 있다면, 재귀 수행
+            dfs(next);
+    }
+}
+```
+
+### **DFS 알고리즘-반복**
+
+Input  사이즈가 큰 경우, 즉 방문해야 할 노드가 많다면 재귀 call 프레임이 많아 스택 사이즈가 넘어가는 StackOverFlow가 발생 할 수 있다.
+
+```
+int Graph[MAX_N][MAX_M];
+int Stack[STACK_SIZE], Top;
+
+// node : 시작 정점
+void dfs(int node){
+    bool Visited[MAX_N] = {false}; // 방문 한 적이 있는 지 확인
+    Top = -1;   // 스택 Top 초기화
+
+    Stack[++Top]=node;  // 데이터 추가 (시작 정점 먼저 들릴테니 마지막에 추가)
+
+    while(Top != -1){   // 원소가 남아있다면
+        int curr = Stack[Top--]; 마지막으로 저장된 원소를 하나 꺼냄 == pop
+        if(!visited[curr]){ // 방문한 적이 없다면
+            visited[curr] = true;
+            
+            for(int next=0; next<N; ++next){
+        if(!Visited[next] && Graph[curr][next]) // 한 번도 가보지 않았고, 길이 있다면, 스택에 추가
+            Stack[++Top] = next;
+    }
+        }
+    }
+}
+```
+## **BFS 알고리즘**
+
+너비 우선 탐색은 탐색 시작점의 인접한 정점들을 먼저 모두 차례로 방문한 후에 방문 했던 정점을 시작점으로 해서 다시 인접한 정점을 차례로 방문하는 형식
+
+인접한 정점들에 대해 탐색한 후, 차례로 다시 너비탐색을 진행해야 하므로, 선입선출의 큐를 이용
+
+### 큐
+
+사용하는 연산
+1. enqueue : Rear(꼬리)에 데이터 삽입
+2. dequeue : front(머리)에 데이터 삭제
+3. Rear : 큐의 꼬리 부분, 저장된 원소 중 마지막 원소
+4. front : 큐의 머리 부분, 저장된 원소 중 첫 번째 원소
+
+![QUEUE](./picture/QUEUE.JPG)
 
 ## **동적계획법**
 
