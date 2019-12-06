@@ -7,7 +7,7 @@
 *   dfs가 끝난 뒤에는 방문(바이러스가)한 적없고, 맵에서도 안전지역이며, 벽을 새로 설치하지 않은 구역을 찾아 갯수를 출력하였다.
 */
 
-// 제출 결과: [메모리: KB 시간: ms]
+// 제출 결과: [메모리: 29684KB 시간: 292ms]
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
