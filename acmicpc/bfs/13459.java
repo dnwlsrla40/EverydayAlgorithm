@@ -134,7 +134,7 @@ public class Main {
 }
 
 
-// 노드 분리
+// 노드 분리 및 10회 초과시 break 코드 추가
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -174,11 +174,12 @@ public class Java_13459 {
             int bx = b_temp.x;
             int by = b_temp.y;
 
+            if(r_temp.count > 10 )
+                break;
+
             if(rx==end_x && ry==end_y) {
-                if(r_temp.count <= 10) {
-                    flag = true;
-                    break;
-                }
+                flag = true;
+                break;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -218,7 +219,6 @@ public class Java_13459 {
                     r_q.add(new Node(r_dx,r_dy,r_temp.count+1));
                     b_q.add(new Node(b_dx,b_dy,0));
                     visit[r_dx][r_dy][b_dx][b_dy] = true;
-
                 }
             }
         }
